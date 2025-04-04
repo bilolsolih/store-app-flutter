@@ -1,0 +1,62 @@
+name: store_app
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  flutter_native_splash: ^2.4.5
+  go_router: ^14.8.1
+  flutter_screenutil: ^5.9.3
+  flutter_svg: ^2.0.17
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+  fonts:
+    - family: General Sans
+      fonts:
+        - asset: assets/fonts/GeneralSans/GeneralSans-Regular.otf
+          style: normal
+          weight: 400
+        - asset: assets/fonts/GeneralSans/GeneralSans-Medium.otf
+          weight: 500
+        - asset: assets/fonts/GeneralSans/GeneralSans-SemiBold.otf
+          weight: 600
+
+
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+
+flutter_native_splash:
+  color: "#1A1A1A"
+  android: true
+  ios: true
+
