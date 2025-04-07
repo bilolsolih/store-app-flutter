@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_app/features/authentication/widgets/auth_page_title_and_subtitle.dart';
 
 import '../../../core/utils/colors.dart';
 import '../../common/widgets/store_text_button.dart';
 import '../../common/widgets/store_text_form_field.dart';
+import '../widgets/auth_page_title_and_subtitle.dart';
 
 class ForgotPasswordView extends StatefulWidget {
   const ForgotPasswordView({super.key});

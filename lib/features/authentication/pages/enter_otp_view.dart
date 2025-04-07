@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_app/features/authentication/pages/store_app_bar_with_back_button.dart';
+import 'package:store_app/features/authentication/widgets/store_app_bar_with_back_button.dart';
 
 import '../../../core/utils/colors.dart';
 import '../../common/widgets/store_text_button.dart';

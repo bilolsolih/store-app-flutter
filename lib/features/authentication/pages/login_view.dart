@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store_app/core/routing/routes.dart';
-import 'package:store_app/features/authentication/widgets/auth_page_title_and_subtitle.dart';
 
 import '../../../core/utils/colors.dart';
 import '../../common/widgets/store_password_form_field.dart';
 import '../../common/widgets/store_social_auth_button.dart';
 import '../../common/widgets/store_text_button.dart';
 import '../../common/widgets/store_text_form_field.dart';
+import '../widgets/auth_page_title_and_subtitle.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});

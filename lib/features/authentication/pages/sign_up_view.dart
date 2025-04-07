@@ -1,17 +1,17 @@
-import 'dart:math';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store_app/core/routing/routes.dart';
 import 'package:store_app/core/utils/colors.dart';
-import 'package:store_app/features/authentication/widgets/auth_page_title_and_subtitle.dart';
-import 'package:store_app/features/authentication/widgets/sign_up_terms_and_conditions.dart';
-import 'package:store_app/features/common/widgets/store_password_form_field.dart';
-import 'package:store_app/features/common/widgets/store_text_form_field.dart';
-import 'package:store_app/features/common/widgets/store_social_auth_button.dart';
-import 'package:store_app/features/common/widgets/store_text_button.dart';
+
+import '../../common/widgets/store_password_form_field.dart';
+import '../../common/widgets/store_social_auth_button.dart';
+import '../../common/widgets/store_text_button.dart';
+import '../../common/widgets/store_text_form_field.dart';
+import '../widgets/auth_page_title_and_subtitle.dart';
+import '../widgets/sign_up_terms_and_conditions.dart';
+
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});
