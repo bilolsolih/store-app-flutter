@@ -2,23 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:store_app/core/utils/colors.dart';
 
-class StoreTextButton extends StatelessWidget {
-  const StoreTextButton({
+class StoreSocialAuthButton extends StatelessWidget {
+  const StoreSocialAuthButton({
     super.key,
+    required this.icon,
     required this.text,
     required this.width,
     required this.height,
     required this.callback,
     this.fontSize = 16,
-    this.showArrow = false,
+    this.showOutlineBorder = false,
     this.backgroundColor = AppColors.primary,
+    this.foregroundColor = Colors.white,
   });
 
-  final String text;
+  final String icon, text;
   final double width, height, fontSize;
-  final bool showArrow;
+  final bool showOutlineBorder;
 
-  final Color backgroundColor;
+  final Color foregroundColor, backgroundColor;
 
   final VoidCallback callback;
 
@@ -33,7 +35,10 @@ class StoreTextButton extends StatelessWidget {
           style: TextButton.styleFrom(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
-              side: BorderSide.none,
+              side:
+                  showOutlineBorder
+                      ? BorderSide(color: AppColors.primary200)
+                      : BorderSide.none,
             ),
             backgroundColor: backgroundColor,
             foregroundColor: Theme.of(context).colorScheme.onPrimary,
@@ -42,14 +47,15 @@ class StoreTextButton extends StatelessWidget {
             spacing: 10,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SvgPicture.asset(icon),
               Text(
                 text,
                 style: TextStyle(
+                  color: foregroundColor,
                   fontSize: fontSize,
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              if (showArrow) SvgPicture.asset("assets/icons/right_arrow.svg"),
             ],
           ),
         ),

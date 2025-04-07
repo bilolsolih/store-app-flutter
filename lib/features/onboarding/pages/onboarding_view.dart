@@ -13,7 +13,7 @@ class OnboardingView extends StatelessWidget {
       body: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(24.w, 60.h, 42.w, 0),
+            padding: EdgeInsets.fromLTRB(24.w, 40.h, 42.w, 0),
             child: Text(
               "Define yourself in your unique way.",
               style: TextStyle(
