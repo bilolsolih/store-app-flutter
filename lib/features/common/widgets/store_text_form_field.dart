@@ -11,6 +11,7 @@ class StoreTextFormField extends StatelessWidget {
     required this.hintText,
     required this.validator,
     required this.isValid,
+    this.autoValidateMode = AutovalidateMode.onUnfocus
   });
 
   final TextEditingController controller;
@@ -18,6 +19,7 @@ class StoreTextFormField extends StatelessWidget {
   final String? Function(String?) validator;
 
   final bool? isValid;
+  final AutovalidateMode autoValidateMode;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class StoreTextFormField extends StatelessWidget {
         TextFormField(
           controller: controller,
           validator: validator,
-          autovalidateMode: AutovalidateMode.onUnfocus,
+          autovalidateMode: autoValidateMode,
           style: TextStyle(
             color: AppColors.primary,
             fontSize: 16.r,
@@ -45,7 +47,10 @@ class StoreTextFormField extends StatelessWidget {
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(horizontal: 20.w),
             hintStyle: TextStyle(color: AppColors.secondary, fontSize: 16.r),
-            errorStyle: TextStyle(fontSize: 14.r, fontWeight: FontWeight.w500),
+            errorStyle: TextStyle(
+              fontSize: 14.r,
+              fontWeight: FontWeight.w500,
+            ),
             suffixIconConstraints: BoxConstraints.loose(
               Size(double.infinity, double.infinity),
             ),
@@ -62,7 +67,6 @@ class StoreTextFormField extends StatelessWidget {
               ),
             ),
             hintText: hintText,
-
             errorBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: Theme.of(context).colorScheme.error,
@@ -88,7 +92,9 @@ class StoreTextFormField extends StatelessWidget {
                         : AppColors.secondary,
               ),
             ),
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
           ),
         ),
       ],

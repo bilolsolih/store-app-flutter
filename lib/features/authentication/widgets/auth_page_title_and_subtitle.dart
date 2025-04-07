@@ -30,7 +30,6 @@ class AuthPageTitleAndSubtitle extends StatelessWidget {
           style: TextStyle(
             color: AppColors.secondary,
             fontSize: 16.r,
-            letterSpacing: -0.05,
           ),
         ),
       ],

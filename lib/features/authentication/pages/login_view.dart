@@ -1,40 +1,37 @@
-import 'dart:math';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store_app/core/routing/routes.dart';
-import 'package:store_app/core/utils/colors.dart';
 import 'package:store_app/features/authentication/widgets/auth_page_title_and_subtitle.dart';
-import 'package:store_app/features/authentication/widgets/sign_up_terms_and_conditions.dart';
-import 'package:store_app/features/common/widgets/store_password_form_field.dart';
-import 'package:store_app/features/common/widgets/store_text_form_field.dart';
-import 'package:store_app/features/common/widgets/store_social_auth_button.dart';
-import 'package:store_app/features/common/widgets/store_text_button.dart';
 
-class SignUpView extends StatefulWidget {
-  const SignUpView({super.key});
+import '../../../core/utils/colors.dart';
+import '../../common/widgets/store_password_form_field.dart';
+import '../../common/widgets/store_social_auth_button.dart';
+import '../../common/widgets/store_text_button.dart';
+import '../../common/widgets/store_text_form_field.dart';
+
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
   @override
-  State<SignUpView> createState() => _SignUpViewState();
+  State<LoginView> createState() => _LoginViewState();
 }
 
-class _SignUpViewState extends State<SignUpView> {
-  final fullNameController = TextEditingController();
+class _LoginViewState extends State<LoginView> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  bool? fullNameValid, emailValid, passwordValid;
+  bool? emailValid, passwordValid;
 
   final formKey = GlobalKey<FormState>();
 
   Color getBackgroundColor() {
-    if (fullNameValid == null || emailValid == null || passwordValid == null) {
+    if (emailValid == null || passwordValid == null) {
       return AppColors.primary200;
     }
 
-    if (!fullNameValid! || !emailValid! || !passwordValid!) {
+    if (!emailValid! || !passwordValid!) {
       return AppColors.primary200;
     }
 
@@ -53,27 +50,10 @@ class _SignUpViewState extends State<SignUpView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AuthPageTitleAndSubtitle(
-                title: "Create an account",
-                subtitle: "Let's create your account.",
+                title: "Login to your account",
+                subtitle: "It’s great to see you again.",
               ),
               SizedBox(height: 24.h),
-              StoreTextFormField(
-                controller: fullNameController,
-                isValid: fullNameValid,
-                label: "Full Name",
-                hintText: "Enter your full name",
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    fullNameValid = false;
-                    setState(() {});
-                    return "This field is required.";
-                  }
-                  fullNameValid = true;
-                  setState(() {});
-                  return null;
-                },
-              ),
-              SizedBox(height: 16.h),
               StoreTextFormField(
                 controller: emailController,
                 isValid: emailValid,
@@ -115,11 +95,27 @@ class _SignUpViewState extends State<SignUpView> {
                   return null;
                 },
               ),
-              SizedBox(height: 16.h),
-              SignUpTermsAndConditions(),
+              SizedBox(height: 10),
+              RichText(
+                text: TextSpan(
+                  text: "Forgot your password? ",
+                  style: TextStyle(color: AppColors.primary, fontSize: 14.r),
+                  children: [
+                    TextSpan(
+                      text: "Reset your password",
+                      style: TextStyle(
+                        color: AppColors.primary,
+                        fontSize: 14.r,
+                        fontWeight: FontWeight.w500,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               SizedBox(height: 24.h),
               StoreTextButton(
-                text: "Create an Account",
+                text: "Login",
                 width: double.infinity,
                 height: 54.h,
                 backgroundColor: getBackgroundColor(),
@@ -136,9 +132,7 @@ class _SignUpViewState extends State<SignUpView> {
                     child: Text(
                       "Or",
                       style: TextStyle(
-                        color: AppColors.secondary,
-                        fontSize: 14,
-                      ),
+                          color: AppColors.secondary, fontSize: 14),
                     ),
                   ),
                   Expanded(child: Divider(color: AppColors.primary100)),
@@ -147,7 +141,7 @@ class _SignUpViewState extends State<SignUpView> {
               SizedBox(height: 24.h),
               StoreSocialAuthButton(
                 icon: "assets/icons/google_logo.svg",
-                text: "Sign Up with Google",
+                text: "Login with Google",
                 width: double.infinity,
                 height: 56.h,
                 foregroundColor: AppColors.primary,
@@ -158,7 +152,7 @@ class _SignUpViewState extends State<SignUpView> {
               SizedBox(height: 16.h),
               StoreSocialAuthButton(
                 icon: "assets/icons/facebook_logo.svg",
-                text: "Sign Up with Facebook",
+                text: "Login with Facebook",
                 width: double.infinity,
                 height: 56.h,
                 backgroundColor: AppColors.facebookColor,
@@ -168,14 +162,13 @@ class _SignUpViewState extends State<SignUpView> {
               Center(
                 child: RichText(
                   text: TextSpan(
-                    text: "Already have an account? ",
+                    text: "Don't have an account? ",
                     style: TextStyle(color: AppColors.primary, fontSize: 14.r),
                     children: [
                       TextSpan(
-                        text: "Log In",
-                        recognizer:
-                            TapGestureRecognizer()
-                              ..onTap = () => context.go(Routes.login),
+                        text: "Join",
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () => context.go(Routes.signUp),
                         style: TextStyle(
                           color: AppColors.primary,
                           fontSize: 14.r,
