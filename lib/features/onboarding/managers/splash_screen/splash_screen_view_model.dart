@@ -5,8 +5,8 @@ import 'package:store_app/core/routing/routes.dart';
 
 class SplashScreenViewModel extends ChangeNotifier {
   SplashScreenViewModel() {
-    // Future.delayed(
-    //   Duration(milliseconds: 3000),
-    // ).then((value) => navigatorKey.currentContext!.go(Routes.onboarding));
+    Future.delayed(
+      Duration(milliseconds: 3000),
+    ).then((value) => navigatorKey.currentContext!.go(Routes.onboarding));
   }
 }

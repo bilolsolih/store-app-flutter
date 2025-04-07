@@ -9,9 +9,7 @@ import 'package:store_app/core/utils/themes.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-  runApp(
-    ScreenUtilInit(designSize: const Size(390, 844), child: const MyApp()),
-  );
+  runApp(ScreenUtilInit(designSize: const Size(390, 844), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -19,13 +17,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: dependencies,
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        theme: AppThemes.lightTheme,
-        routerConfig: router,
-      ),
-    );
+    return MaterialApp.router(debugShowCheckedModeBanner: false, theme: AppThemes.lightTheme, routerConfig: router);
   }
 }

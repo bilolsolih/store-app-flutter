@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:store_app/features/authentication/widgets/store_app_bar_with_back_button.dart';
 
 import '../../../core/utils/colors.dart';
 import '../../common/widgets/store_text_button.dart';
@@ -23,10 +24,11 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: StoreAppBarWithBackButton(),
       body: Form(
         key: formKey,
         child: Padding(
-          padding: EdgeInsets.fromLTRB(24.w, 60.h, 24.w, 24.h),
+          padding: EdgeInsets.fromLTRB(24.w, 14.h, 24.w, 24.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

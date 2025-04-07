@@ -14,13 +14,17 @@ class StoreAppBarWithBackButton extends StatelessWidget implements PreferredSize
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading: Align(
-        alignment: Alignment.bottomCenter,
-        child: StoreIconButton(
-          icon: "assets/icons/back_arrow.svg",
-          width: 19.w,
-          height: 16.h,
-          callback: () => context.pop(),
+      leadingWidth: 64.w,
+      leading: Padding(
+        padding: EdgeInsets.only(left: 15.w),
+        child: Align(
+          alignment: Alignment.bottomLeft,
+          child: StoreIconButton(
+            icon: "assets/icons/back_arrow.svg",
+            width: 19.w,
+            height: 16.h,
+            callback: () => context.pop(),
+          ),
         ),
       ),
       toolbarHeight: toolbarHeight.h,

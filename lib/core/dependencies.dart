@@ -1,9 +1,3 @@
-import 'package:provider/provider.dart';
-import 'package:store_app/features/onboarding/managers/splash_screen/splash_screen_view_model.dart';
+import 'package:provider/single_child_widget.dart';
 
-final dependencies = [
-  ChangeNotifierProvider(
-    create: (context) => SplashScreenViewModel(),
-    lazy: false,
-  ),
-];
+final List<SingleChildWidget> dependencies = [];

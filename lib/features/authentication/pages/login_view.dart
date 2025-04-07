@@ -6,7 +6,7 @@ import 'package:store_app/core/routing/routes.dart';
 
 import '../../../core/utils/colors.dart';
 import '../../common/widgets/store_password_form_field.dart';
-import '../../common/widgets/store_social_auth_button.dart';
+import '../widgets/store_social_auth_button.dart';
 import '../../common/widgets/store_text_button.dart';
 import '../../common/widgets/store_text_form_field.dart';
 import '../widgets/auth_page_title_and_subtitle.dart';
@@ -49,10 +49,7 @@ class _LoginViewState extends State<LoginView> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AuthPageTitleAndSubtitle(
-                title: "Login to your account",
-                subtitle: "It’s great to see you again.",
-              ),
+              AuthPageTitleAndSubtitle(title: "Login to your account", subtitle: "It’s great to see you again."),
               SizedBox(height: 24.h),
               StoreTextFormField(
                 controller: emailController,
@@ -65,9 +62,7 @@ class _LoginViewState extends State<LoginView> {
                     setState(() {});
                     return "This field is required.";
                   }
-                  final emailRegex = RegExp(
-                    r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
-                  );
+                  final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
                   if (!emailRegex.hasMatch(value)) {
                     emailValid = false;
                     setState(() {});
@@ -103,6 +98,7 @@ class _LoginViewState extends State<LoginView> {
                   children: [
                     TextSpan(
                       text: "Reset your password",
+                      recognizer: TapGestureRecognizer()..onTap = () => context.push(Routes.forgotPassword),
                       style: TextStyle(
                         color: AppColors.primary,
                         fontSize: 14.r,
@@ -129,11 +125,7 @@ class _LoginViewState extends State<LoginView> {
                   Expanded(child: Divider(color: AppColors.primary100)),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 6.w),
-                    child: Text(
-                      "Or",
-                      style: TextStyle(
-                          color: AppColors.secondary, fontSize: 14),
-                    ),
+                    child: Text("Or", style: TextStyle(color: AppColors.secondary, fontSize: 14)),
                   ),
                   Expanded(child: Divider(color: AppColors.primary100)),
                 ],
@@ -167,8 +159,7 @@ class _LoginViewState extends State<LoginView> {
                     children: [
                       TextSpan(
                         text: "Join",
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () => context.go(Routes.signUp),
+                        recognizer: TapGestureRecognizer()..onTap = () => context.go(Routes.signUp),
                         style: TextStyle(
                           color: AppColors.primary,
                           fontSize: 14.r,

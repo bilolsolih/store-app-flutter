@@ -6,7 +6,7 @@ import 'package:store_app/core/routing/routes.dart';
 import 'package:store_app/core/utils/colors.dart';
 
 import '../../common/widgets/store_password_form_field.dart';
-import '../../common/widgets/store_social_auth_button.dart';
+import '../widgets/store_social_auth_button.dart';
 import '../../common/widgets/store_text_button.dart';
 import '../../common/widgets/store_text_form_field.dart';
 import '../widgets/auth_page_title_and_subtitle.dart';
