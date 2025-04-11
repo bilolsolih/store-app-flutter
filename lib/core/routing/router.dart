@@ -22,7 +22,6 @@ final GoRouter router = GoRouter(
   navigatorKey: navigatorKey,
   initialLocation: Routes.newAddress,
   routes: [
-    GoRoute(path: '/sliver', builder: (context, state) => SliverSample()),
     GoRoute(
       path: Routes.splashScreen,
       builder: (context, state) {
