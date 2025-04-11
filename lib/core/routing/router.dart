@@ -14,7 +14,6 @@ import 'package:store_app/features/home/pages/home_view.dart';
 import 'package:store_app/features/onboarding/managers/splash_screen/splash_screen_view_model.dart';
 import 'package:store_app/features/onboarding/pages/onboarding_view.dart';
 import 'package:store_app/features/onboarding/pages/splash_screen_view.dart';
-import 'package:store_app/sliver_sample.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
