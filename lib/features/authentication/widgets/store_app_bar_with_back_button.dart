@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:store_app/features/common/widgets/store_icon_button.dart';
+
+import '../../common/widgets/store_icon_button.dart';
 
 class StoreAppBarWithBackButton extends StatelessWidget implements PreferredSizeWidget {
   const StoreAppBarWithBackButton({super.key, this.toolbarHeight = 64});

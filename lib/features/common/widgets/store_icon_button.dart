@@ -18,7 +18,7 @@ class StoreIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: callback,
-      padding: EdgeInsets.zero,
+      style: IconButton.styleFrom(tapTargetSize: MaterialTapTargetSize.shrinkWrap),
       icon: SvgPicture.asset(
         icon,
         width: width,

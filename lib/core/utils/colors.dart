@@ -13,6 +13,9 @@ class AppColors {
   static const surface = Colors.white;
   static const onSurface = Color(0xFF1A1A1A);
 
+  static const primary500 = Color(0xFF808080);
+  static const primary400 = Color(0xFF999999);
+  static const primary300 = Color(0xFFB3B3B3);
   static const primary200 = Color(0xFFCCCCCC);
   static const primary100 = Color(0xFFE6E6E6);
 

@@ -86,7 +86,7 @@ class _StorePasswordFormFieldState extends State<StorePasswordFormField> {
             suffixIcon: Padding(
               padding: EdgeInsets.only(right: 10.w),
               child: AnimatedCrossFade(
-                duration: Duration(milliseconds: 100),
+                duration: Duration(milliseconds: 300),
                 crossFadeState:
                     showPassword
                         ? CrossFadeState.showFirst

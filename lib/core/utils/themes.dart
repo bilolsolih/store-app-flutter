@@ -15,6 +15,7 @@ class AppThemes {
       onError: AppColors.onError,
       surface: AppColors.surface,
       onSurface: AppColors.onSurface,
+      surfaceTint: Colors.transparent,
     ),
   );
 }

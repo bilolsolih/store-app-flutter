@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:store_app/features/authentication/widgets/store_app_bar_with_back_button.dart';
 
 import '../../../core/utils/colors.dart';
 import '../../common/widgets/store_text_button.dart';
 import '../../common/widgets/store_text_form_field.dart';
 import '../widgets/auth_page_title_and_subtitle.dart';
+import '../widgets/store_app_bar_with_back_button.dart';
 
 class ForgotPasswordView extends StatefulWidget {
   const ForgotPasswordView({super.key});
@@ -20,6 +20,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
   bool? emailValid;
 
   final formKey = GlobalKey<FormState>();
+
 
   @override
   Widget build(BuildContext context) {
