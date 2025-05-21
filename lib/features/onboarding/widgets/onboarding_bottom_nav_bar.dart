@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:store_app/core/routing/routes.dart';
 
 import '../../common/widgets/store_text_button.dart';
@@ -22,7 +23,11 @@ class OnboardingBottomNavBar extends StatelessWidget {
         width: 341.w,
         height: 54.h,
         showArrow: true,
-        callback: () => context.go(Routes.signUp),
+        callback: () async {
+          context.go(Routes.signUp);
+          final prefs = await SharedPreferences.getInstance();
+          await prefs.setBool("onboardingDone", true);
+        },
       ),
     );
   }

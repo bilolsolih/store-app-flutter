@@ -57,16 +57,14 @@ class NewAddressBloc extends Bloc<NewAddressEvent, NewAddressState> {
     }
   }
 
-  Future<void> _onChooseLocation(NewAddressChooseLocation event, Emitter<NewAddressState> emit)async{
-    final currentPosition = LatLng(event.chosenLocation.latitude, event.chosenLocation.longitude);
-
-    controller.move(currentPosition, controller.camera.zoom);
+  Future<void> _onChooseLocation(NewAddressChooseLocation event, Emitter<NewAddressState> emit) async {
+    controller.move(event.chosenLocation, controller.camera.zoom);
     emit(
       state.copyWith(
-        currentLocation: currentPosition,
+        currentLocation: event.chosenLocation,
         markers: [
           Marker(
-            point: currentPosition,
+            point: event.chosenLocation,
             width: 40,
             height: 40,
             child: Icon(Icons.location_on, color: Colors.red, size: 40),
@@ -75,12 +73,17 @@ class NewAddressBloc extends Bloc<NewAddressEvent, NewAddressState> {
       ),
     );
 
-    List<Placemark> placeMarks = await placemarkFromCoordinates(currentPosition.latitude, currentPosition.longitude);
+    List<Placemark> placeMarks = await placemarkFromCoordinates(
+      event.chosenLocation.latitude,
+      event.chosenLocation.longitude,
+    );
 
     if (placeMarks.isNotEmpty) {
       Placemark p = placeMarks.first;
       final addressString = '${p.country}, ${p.administrativeArea}, ${p.locality}, ${p.street}, ${p.name}';
       emit(state.copyWith(address: addressString));
     }
+    emit(state.copyWith(status: Status.selected));
+    emit(state.copyWith(status: Status.idle));
   }
 }

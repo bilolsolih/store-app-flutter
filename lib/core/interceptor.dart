@@ -1,10 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:store_app/core/routing/router.dart';
 import 'package:store_app/core/routing/routes.dart';
 import 'package:store_app/core/secure_storage.dart';
 import 'package:store_app/data/repositories/auth_repository.dart';
+
+import 'routing/router.dart' show navigatorKey;
+
 
 class AuthInterceptor extends Interceptor {
   AuthInterceptor({required Dio dio}) : _dio = dio;

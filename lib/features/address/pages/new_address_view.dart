@@ -39,7 +39,27 @@ class NewAddressView extends StatelessWidget {
         actionsPadding: EdgeInsets.only(right: 16.w),
         actions: [StoreIconButton(icon: "assets/icons/notification.svg", width: 24.r, height: 24.r, callback: () {})],
       ),
-      body: BlocBuilder<NewAddressBloc, NewAddressState>(
+      body: BlocConsumer<NewAddressBloc, NewAddressState>(
+        listener: (context, state) async {
+          if (state.status == Status.selected) {
+            showModalBottomSheet(
+              isDismissible: false,
+              barrierColor: Colors.transparent,
+              context: context,
+              builder: (context) {
+                return Container(
+                  width: double.infinity,
+                  height: 403.h,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+                  ),
+                  child: Column(children: [Text(state.address!)]),
+                );
+              },
+            );
+          }
+        },
         builder:
             (context, state) => Column(
               children: [
@@ -48,9 +68,9 @@ class NewAddressView extends StatelessWidget {
                     mapController: context.read<NewAddressBloc>().controller,
                     options: MapOptions(
                       initialCenter: LatLng(41.285799883900715, 69.20363493014382),
-                      onTap:
-                          (tapPosition, point) =>
-                              context.read<NewAddressBloc>().add(NewAddressChooseLocation(chosenLocation: point)),
+                      onTap: (tapPosition, point) {
+                        context.read<NewAddressBloc>().add(NewAddressChooseLocation(chosenLocation: point));
+                      },
                     ),
                     children: [
                       TileLayer(
